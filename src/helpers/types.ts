@@ -1,0 +1,1 @@
+export type G_ObjectValues<T> = T[keyof T]

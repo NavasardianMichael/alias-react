@@ -1,16 +1,26 @@
+import { FC, useContext } from 'react';
+import { state } from '.';
 import './App.css';
+import Home from './components/Home/Home';
+import { PAGES } from './constants/view';
+import { T_ViewState } from './store/view/types';
 
-function App() {
+const App: FC<{}> = () => {
+  
+  const viewContext = useContext(state.ViewContext)
+
+  const PAGE_COMPONENTS: { [key in T_ViewState['currentPage']]: JSX.Element } = {
+    [PAGES.home]: <Home />,
+    [PAGES.pre]: <Home />,
+    [PAGES.game]: <Home />,
+  }
+
   return (
-    <div className='App'>
-      <h1>Alias</h1>
-      WORDS
+    <div className='app'>
+      {
+        PAGE_COMPONENTS[viewContext?.currentPage ?? PAGES.home]
+      }
     </div>
   );
 }
 export default App;
-
-
-{/* <div className='upper-section'>
-  <img src={headerIllustration} alt='header' />
-</div> */}
