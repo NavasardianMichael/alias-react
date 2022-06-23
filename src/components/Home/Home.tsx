@@ -1,9 +1,14 @@
 import React, { FC } from "react";
+import { useDispatch } from "react-redux";
+import { PAGES } from "../../constants/view";
+import { setCurrentPage } from "../../store/view/actionCreators";
 
 const Home: FC<{}> = () => {
 
+  const dispatch = useDispatch()
+
   const handleClick = () => {
-    console.log('the game has launched!')
+    dispatch(setCurrentPage(PAGES.game))
   }
 
   return (

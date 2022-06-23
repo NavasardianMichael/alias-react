@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
+import viewReducer from './store/view/viewReducer';
 import App from './App';
-import { initialViewState, initState } from './store/state';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-export const state = initState()
+const store = createStore(combineReducers({
+  view: viewReducer
+}))
 
 root.render(
   <React.StrictMode>
-    <state.ViewContext.Provider value={initialViewState}>
+    <Provider store={store}>
       <App />
-    </state.ViewContext.Provider>
+    </Provider>
   </React.StrictMode>
 );
+
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

@@ -1,7 +1,12 @@
+import { PAGES } from "../../constants/view";
 import { SET_CURRENT_PAGE } from "./actionTypes";
 import { T_ViewState, T_ViewStateActions } from "./types";
 
-export function viewReducer(state: T_ViewState, action: T_ViewStateActions): T_ViewState {
+export const initialViewState: T_ViewState = {
+    currentPage: PAGES.home
+}
+
+export function viewReducer(state: T_ViewState = initialViewState, action: T_ViewStateActions): T_ViewState {
 
     switch (action.type) {
         case SET_CURRENT_PAGE:
