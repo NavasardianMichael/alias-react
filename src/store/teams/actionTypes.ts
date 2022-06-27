@@ -1,0 +1,1 @@
+export const ADD_TEAM = 'TEAMS/ADD_TEAM' as const

@@ -8,7 +8,7 @@ const Home: FC<{}> = () => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    dispatch(setCurrentPage(PAGES.game))
+    dispatch(setCurrentPage(PAGES.pre))
   }
 
   return (
