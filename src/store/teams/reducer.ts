@@ -1,6 +1,6 @@
 import { D_TEAM_1, D_TEAM_2 } from "../../constants/teams";
 import { genId } from "../../helpers/common";
-import { ADD_TEAM } from "./actionTypes";
+import { ADD_TEAM, SET_TEAM_OPTIONS } from "./actionTypes";
 import { T_TeamsState, T_TeamsStateActions } from "./types";
 
 export const initialTeamState: T_TeamsState = {
@@ -25,6 +25,18 @@ function teamsReducer(state: T_TeamsState = initialTeamState, action: T_TeamsSta
                         name: action.payload.name,
                         points: 0,
                         memberIds: []
+                    }
+                }
+            }
+        }
+        case SET_TEAM_OPTIONS: {
+            return {
+                ...state,
+                byId: {
+                    ...state.byId,
+                    [action.payload.options.id]: {
+                        ...state.byId[action.payload.options.id],
+                        ...action.payload.options
                     }
                 }
             }

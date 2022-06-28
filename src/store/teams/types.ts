@@ -1,4 +1,5 @@
-import { ADD_TEAM } from "./actionTypes"
+import { G_PartialWithRequired } from "../../helpers/types"
+import { ADD_TEAM, SET_TEAM_OPTIONS } from "./actionTypes"
 
 // STATE SHAPE
 export type T_Team = {
@@ -24,6 +25,13 @@ export type T_AddTeam = (name: T_Team['name']) => {
     }
 }
 
+export type T_SetTeamOptions = (options: G_PartialWithRequired<T_Team, 'id'>) => {
+    type: typeof SET_TEAM_OPTIONS,
+    payload: {
+        options: G_PartialWithRequired<T_Team, 'id'>
+    }
+}
+
 
 // ACTION COMMON TYPE
-export type T_TeamsStateActions = ReturnType<T_AddTeam>
+export type T_TeamsStateActions = ReturnType<T_AddTeam> | ReturnType<T_SetTeamOptions>

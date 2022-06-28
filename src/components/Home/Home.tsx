@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { PAGES } from "../../constants/view";
+import { COLORS, PAGES } from "../../constants/view";
 import { setCurrentPage } from "../../store/view/actionCreators";
 
 const Home: FC<{}> = () => {
@@ -24,13 +25,13 @@ const Home: FC<{}> = () => {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
-        <button 
-          type="button" 
-          className="btn btn-secondary"
+        <Button
+          fullWidth 
+          style={{backgroundColor: COLORS.secondary, color: COLORS.primary}}
           onClick={handleClick}
         >
-            Secondary
-        </button>
+          Start
+        </Button>
       </div>
     </div>
   );

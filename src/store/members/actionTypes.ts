@@ -1,1 +1,2 @@
+export const SET_MEMBER_OPTIONS = 'MEMBERS/SET_MEMBER_OPTIONS' as const
 export const ADD_MEMBER = 'MEMBERS/ADD_MEMBER' as const
