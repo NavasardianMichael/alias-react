@@ -1,9 +1,9 @@
 import { InputBase, List, ListItemButton } from '@mui/material';
 import { FC, Fragment, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setMemberOptions } from '../../store/members/actionCreators';
-import { selectMembers } from '../../store/members/selectors';
-import { T_Team } from '../../store/teams/types';
+import { setMemberOptions } from '../../../store/members/actionCreators';
+import { selectMembers } from '../../../store/members/selectors';
+import { T_Team } from '../../../store/teams/types';
 
 type T_Props = {
   memberIds: T_Team['memberIds']

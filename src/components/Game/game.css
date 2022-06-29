@@ -1,0 +1,23 @@
+.game-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    flex-direction: column;
+    user-select: none;
+}
+
+.timer-wrapper {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    border: 4px solid rgb(111, 140, 195);
+    border-radius: 50%;
+}
+
+.timer {
+    font-size: 1.4rem;
+}

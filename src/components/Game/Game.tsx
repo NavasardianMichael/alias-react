@@ -1,31 +1,41 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { PAGES } from '../../constants/view'
-import { setCurrentPage } from '../../store/view/actionCreators'
+import { FC, useState } from 'react'
+import Timer from './Timer'
+import './game.css'
+import { WORDS } from '../../constants/words'
+import { getShuffledArr } from '../../helpers/random'
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import CheckIcon from '@mui/icons-material/Check';
 
 const Game: FC<{}> = () => {
 
-  const dispatch = useDispatch()
-  const [ timer, setTimer ] = useState(60)
-  const timerIntervalRef = useRef<NodeJS.Timer>()
-  
-  const handleTimer = useCallback(() => {
-    setTimer(prev => prev - 1)
-  }, [timer])
+  const [ collection, setCollection ] = useState(getShuffledArr(WORDS.react))
+  const [ step, setStep ] = useState(0)
 
-  useEffect(() => {
-    timerIntervalRef.current = setInterval(handleTimer, 1000)
-    return () => clearInterval(timerIntervalRef.current)
-  }, [])
-
-  useEffect(() => {
-    if(timer) return
-    clearInterval(timerIntervalRef.current)
-    dispatch(setCurrentPage(PAGES.home)) 
-  }, [timer])
+  const handleClick = () => {
+    console.log('Clicked!');
+  }
 
   return (
-    <p>{timer}</p>
+    <div className='game-wrapper'>
+      <Timer />
+      <List>
+        {
+          collection[step].map(word => (
+            <ListItem key={word.value} divider disablePadding>
+              <ListItemButton onClick={handleClick}>
+                <ListItemText primary={word.value} />
+                  {
+                    word.selected &&
+                    <ListItemIcon>
+                      <CheckIcon color='success' />
+                    </ListItemIcon>
+                  }
+                </ListItemButton>
+            </ListItem>
+          ))
+        }
+        </List>
+    </div>
   )
 }
 

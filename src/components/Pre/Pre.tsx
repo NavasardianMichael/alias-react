@@ -6,7 +6,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { setTeamOptions } from '../../store/teams/actionCreators';
 import { selectTeamIds, selectTeams } from '../../store/teams/selectors';
-import Members from '../Members/Members';
+import Members from './Members/Members';
 import './pre.css';
 import { COLORS, PAGES } from '../../constants/view';
 import { setCurrentPage } from '../../store/view/actionCreators';
