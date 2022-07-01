@@ -34,4 +34,4 @@ export type T_SetTeamOptions = (options: G_PartialWithRequired<T_Team, 'id'>) =>
 
 
 // ACTION COMMON TYPE
-export type T_TeamsStateActions = ReturnType<T_AddTeam> | ReturnType<T_SetTeamOptions>
+export type T_TeamsActions = ReturnType<T_AddTeam> | ReturnType<T_SetTeamOptions>

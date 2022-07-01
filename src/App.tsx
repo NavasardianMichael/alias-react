@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { PAGE_COMPONENTS } from './constants/view';
+import { PAGE_COMPONENTS } from './constants/app';
 import './App.css';
-import { RootState } from '.';
+import { selectCurrentPage } from './store/app/selectors';
 
 const App: FC<{}> = () => {
   
-  const currentPage = useSelector((state: RootState) => state.view.currentPage)
+  const currentPage = useSelector(selectCurrentPage)
 
   return (
     PAGE_COMPONENTS[

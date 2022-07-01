@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
-import viewReducer from './store/view/reducer';
+import appReducer from './store/app/reducer';
 import teamsReducer from './store/teams/reducer';
 import App from './App';
 import membersReducer from './store/members/reducer';
+import settingsReducer from './store/settings/reducer';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 const store = createStore(combineReducers({
-  view: viewReducer,
+  app: appReducer,
   teams: teamsReducer,
-  members: membersReducer
+  members: membersReducer,
+  settings: settingsReducer,
 }))
 
 root.render(

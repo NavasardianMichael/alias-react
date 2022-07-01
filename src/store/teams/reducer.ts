@@ -1,7 +1,7 @@
 import { D_TEAM_1, D_TEAM_2 } from "../../constants/teams";
 import { genId } from "../../helpers/common";
 import { ADD_TEAM, SET_TEAM_OPTIONS } from "./actionTypes";
-import { T_TeamsState, T_TeamsStateActions } from "./types";
+import { T_TeamsState, T_TeamsActions } from "./types";
 
 export const initialTeamState: T_TeamsState = {
     byId: {
@@ -11,7 +11,7 @@ export const initialTeamState: T_TeamsState = {
     allIds: [D_TEAM_1.id, D_TEAM_2.id]
 }
 
-function teamsReducer(state: T_TeamsState = initialTeamState, action: T_TeamsStateActions): T_TeamsState {
+function teamsReducer(state: T_TeamsState = initialTeamState, action: T_TeamsActions): T_TeamsState {
 
     switch (action.type) {
         case ADD_TEAM: {

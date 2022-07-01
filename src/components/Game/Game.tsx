@@ -5,8 +5,9 @@ import { WORDS } from '../../constants/words'
 import { getShuffledArr } from '../../helpers/random'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check';
-import { PAGES } from '../../constants/view'
-import { setCurrentPage } from '../../store/view/actionCreators'
+import CurrentTurnInfo from './CurrentTurnInfo'
+import { setCurrentPage } from '../../store/app/actionCreators'
+import { PAGES } from '../../constants/app'
 import { useDispatch } from 'react-redux'
 
 const Game: FC<{}> = () => {
@@ -20,27 +21,35 @@ const Game: FC<{}> = () => {
     setCollection(prev => prev.map((subCollection, i) => {
       const { id } = e.currentTarget
       if(i !== step) return subCollection
+      
       return subCollection.map(word => {
         if(word.value !== id) return word
+        
+        const newSelectedStatus = !prev[step].find(word => word.value === id)?.selected
+        newSelectedStatus ? checkedCountRef.current++ : checkedCountRef.current--
+        
         return {
           ...word,
-          selected: !prev[step].find(word => word.value === id)?.selected
+          selected: newSelectedStatus
         }
       })
     }))
-
-    checkedCountRef.current++
+    
     if(
       checkedCountRef.current &&
-      checkedCountRef.current % collection[step].length === 0
+      checkedCountRef.current / collection[step].length === step + 1
     ) {
-      if(!collection[step + 1]) return dispatch(setCurrentPage(PAGES.result))
+      if(!collection[step + 1]) {
+        dispatch(setCurrentPage(PAGES.result))
+        return
+      }
       setStep(prev => prev + 1)
     }
   }
 
   return (
     <div className='game-wrapper'>
+      <CurrentTurnInfo />
       <Timer />
       <List>
         {
@@ -58,7 +67,7 @@ const Game: FC<{}> = () => {
             </ListItem>
           ))
         }
-        </List>
+      </List>
     </div>
   )
 }

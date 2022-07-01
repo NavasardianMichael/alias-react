@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { COLORS, PAGES } from "../../constants/view";
-import { setCurrentPage } from "../../store/view/actionCreators";
+import { COLORS, PAGES } from "../../constants/app";
+import { setCurrentPage } from "../../store/app/actionCreators";
 
 const Home: FC<{}> = () => {
 

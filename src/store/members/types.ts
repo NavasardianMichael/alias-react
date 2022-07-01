@@ -1,10 +1,12 @@
 import { G_PartialWithRequired } from "../../helpers/types"
+import { T_Team } from "../teams/types"
 import { ADD_MEMBER, SET_MEMBER_OPTIONS } from "./actionTypes"
 
 // STATE SHAPE
 export type T_Member = {
     id: string
     name: string
+    teamId: T_Team['id']
 }
 
 export type T_MembersState = {
@@ -32,4 +34,4 @@ export type T_SetMemberOptions = (options: G_PartialWithRequired<T_Member, 'id'>
 
 
 // ACTION COMMON TYPE
-export type T_MembersStateActions = ReturnType<T_AddMember> | ReturnType<T_SetMemberOptions>
+export type T_MembersActions = ReturnType<T_AddMember> | ReturnType<T_SetMemberOptions>

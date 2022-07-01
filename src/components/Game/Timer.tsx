@@ -1,13 +1,15 @@
 import { FC, useCallback, useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { PAGES } from '../../constants/view'
-import { setCurrentPage } from '../../store/view/actionCreators'
+import { useDispatch, useSelector } from 'react-redux'
+import { PAGES } from '../../constants/app'
+import { selectDuration } from '../../store/settings/selectors'
+import { setCurrentPage } from '../../store/app/actionCreators'
 
 
 const Timer: FC<{}> = () => {
 
   const dispatch = useDispatch()
-  const [ timer, setTimer ] = useState(10000)
+  const duration = useSelector(selectDuration)
+  const [ timer, setTimer ] = useState(duration)
   const timerIntervalRef = useRef<NodeJS.Timer>()
   
   useEffect(() => {

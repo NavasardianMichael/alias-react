@@ -11,6 +11,15 @@ export const WORDS = {
         'reconcilliation',
         'Virtual DOM',
         'useLayoutEffect',
-        'useContext'
+        'useContext',
+        'React',
+        'Redux',
+        'actionType',
+        'actionCreator',
+        'reducer',
+        'middleware',
+        'selector',
+        'React Fiber',
+        
     ]
 }

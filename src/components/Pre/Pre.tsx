@@ -8,8 +8,8 @@ import { setTeamOptions } from '../../store/teams/actionCreators';
 import { selectTeamIds, selectTeams } from '../../store/teams/selectors';
 import Members from './Members/Members';
 import './pre.css';
-import { COLORS, PAGES } from '../../constants/view';
-import { setCurrentPage } from '../../store/view/actionCreators';
+import { COLORS, PAGES } from '../../constants/app';
+import { setCurrentPage } from '../../store/app/actionCreators';
 
 const Pre: FC<{}> = ({}) => {
 

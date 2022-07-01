@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
     flex-direction: column;
     user-select: none;
 }
 
 .timer-wrapper {
-    margin: auto;
+    margin: 1rem auto 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,4 +21,9 @@
 
 .timer {
     font-size: 1.4rem;
+}
+
+.current-turn-info {
+    display: flex;
+    justify-content: center;
 }
