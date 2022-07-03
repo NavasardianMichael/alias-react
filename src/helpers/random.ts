@@ -16,7 +16,7 @@ export const getShuffledArr = (arr: string[]): T_Word[][] => {
     
     const result = []
     while(shuffledWithProps.length) {
-        result.push(shuffledWithProps.splice(0, 4))
+        result.push(shuffledWithProps.splice(0, 5))
     }
 
     return result
